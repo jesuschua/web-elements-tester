@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation - Web Elements Tester</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu-nav" id="menu-nav">
+            <a href="index.html">Main Page</a>
+            <a href="navigation.html">Navigation Page</a>
+            <a href="form-validation.html">Form Validation</a>
+            <a href="data-display.html">Data Display</a>
+            <a href="printing.html">Printing</a>
+            <a href="keyboard-events.html">Keyboard Events</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Form Validation</h1>
+        
+        <section>
+            <h2>Required Field Validation</h2>
+            <form id="required-form">
+                <label for="required-name">Name (Required):</label>
+                <input type="text" id="required-name" required>
+                <p id="required-name-error" class="error-message"></p>
+                
+                <label for="required-email">Email (Required):</label>
+                <input type="email" id="required-email" required>
+                <p id="required-email-error" class="error-message"></p>
+                
+                <button type="submit">Submit</button>
+                <p id="required-form-result"></p>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Custom Validation</h2>
+            <form id="custom-form">
+                <label for="custom-password">Password (min 8 characters):</label>
+                <input type="password" id="custom-password">
+                <p id="custom-password-error" class="error-message"></p>
+                
+                <label for="custom-age">Age (18-100):</label>
+                <input type="number" id="custom-age" min="18" max="100">
+                <p id="custom-age-error" class="error-message"></p>
+                
+                <label for="custom-url">Website URL:</label>
+                <input type="url" id="custom-url" placeholder="https://example.com">
+                <p id="custom-url-error" class="error-message"></p>
+                
+                <button type="submit">Validate</button>
+                <p id="custom-form-result"></p>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Real-time Validation</h2>
+            <label for="realtime-input">Username (alphanumeric only, 3-20 chars):</label>
+            <input type="text" id="realtime-input">
+            <p id="realtime-error" class="error-message"></p>
+            <p id="realtime-success" class="success-message"></p>
+        </section>
+    </div>
+    
+    <script src="menu.js"></script>
+    <script src="form-validation.js"></script>
+</body>
+</html>
+

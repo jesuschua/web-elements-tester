@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printing - Web Elements Tester</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu-nav" id="menu-nav">
+            <a href="index.html">Main Page</a>
+            <a href="navigation.html">Navigation Page</a>
+            <a href="form-validation.html">Form Validation</a>
+            <a href="data-display.html">Data Display</a>
+            <a href="printing.html">Printing</a>
+            <a href="keyboard-events.html">Keyboard Events</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Printing</h1>
+        
+        <section>
+            <h2>Print Preview</h2>
+            <button onclick="window.print()">Print This Page</button>
+            <p>Click the button above or use Ctrl+P (Cmd+P on Mac) to print this page.</p>
+        </section>
+        
+        <section class="print-section">
+            <h2>Print-Friendly Content</h2>
+            <p>This section is optimized for printing. The hamburger menu and navigation elements will be hidden when printing.</p>
+            <div class="print-content">
+                <h3>Sample Document</h3>
+                <p>This is a sample document that demonstrates print styling. When you print this page, only the essential content will be visible.</p>
+                <ul>
+                    <li>Item 1: Print-friendly formatting</li>
+                    <li>Item 2: Clean black and white layout</li>
+                    <li>Item 3: No navigation elements</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="no-print">
+            <h2>Non-Printable Section</h2>
+            <p>This section will not appear when printing. It's only visible on screen.</p>
+        </section>
+    </div>
+    
+    <script src="menu.js"></script>
+</body>
+</html>
+

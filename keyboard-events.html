@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events - Web Elements Tester</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu-nav" id="menu-nav">
+            <a href="index.html">Main Page</a>
+            <a href="navigation.html">Navigation Page</a>
+            <a href="form-validation.html">Form Validation</a>
+            <a href="data-display.html">Data Display</a>
+            <a href="printing.html">Printing</a>
+            <a href="keyboard-events.html">Keyboard Events</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Keyboard Events</h1>
+        
+        <section>
+            <h2>Key Press Detection</h2>
+            <p>Press any key to see the event details:</p>
+            <div id="key-display">
+                <p><strong>Key:</strong> <span id="key-name">-</span></p>
+                <p><strong>Code:</strong> <span id="key-code">-</span></p>
+                <p><strong>Key Code:</strong> <span id="key-keycode">-</span></p>
+                <p><strong>Shift:</strong> <span id="key-shift">-</span></p>
+                <p><strong>Ctrl:</strong> <span id="key-ctrl">-</span></p>
+                <p><strong>Alt:</strong> <span id="key-alt">-</span></p>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Keyboard Shortcuts</h2>
+            <p>Try these keyboard shortcuts:</p>
+            <ul>
+                <li><strong>Ctrl/Cmd + K:</strong> Clear key display</li>
+                <li><strong>Escape:</strong> Reset all fields</li>
+                <li><strong>Arrow Keys:</strong> Navigate counter</li>
+            </ul>
+            <p id="shortcut-feedback"></p>
+        </section>
+        
+        <section>
+            <h2>Input Field Events</h2>
+            <p>Type in the field below to see key events:</p>
+            <input type="text" id="keyboard-input" placeholder="Type here...">
+            <p id="input-events">No events yet</p>
+        </section>
+        
+        <section>
+            <h2>Arrow Key Counter</h2>
+            <p>Use arrow keys to change the counter:</p>
+            <p id="arrow-counter">Counter: 0</p>
+            <p><small>↑ = +1, ↓ = -1, ← = -10, → = +10</small></p>
+        </section>
+    </div>
+    
+    <script src="menu.js"></script>
+    <script src="keyboard-events.js"></script>
+</body>
+</html>
+

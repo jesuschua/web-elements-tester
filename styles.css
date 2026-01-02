@@ -434,3 +434,107 @@ input[type="range"] {
     transition: width 0.1s linear;
 }
 
+/* Form Validation Styles */
+form {
+    margin-top: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+form label:first-child {
+    margin-top: 0;
+}
+
+.error-message {
+    color: black;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border-left: 3px solid black;
+}
+
+.success-message {
+    color: black;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border-left: 3px solid black;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: white;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+table tr:nth-child(even) {
+    background-color: white;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.pagination button {
+    margin-bottom: 0;
+}
+
+#page-info {
+    font-weight: bold;
+}
+
+/* Print Styles */
+@media print {
+    .hamburger-menu,
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        padding: 0;
+        padding-top: 0;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+    
+    section {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    .print-content {
+        border: 1px solid black;
+        padding: 15px;
+    }
+    
+    button {
+        display: none;
+    }
+}
+
