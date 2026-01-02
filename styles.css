@@ -10,6 +10,7 @@ body {
     color: black;
     line-height: 1.6;
     padding: 20px;
+    padding-top: 80px;
 }
 
 .container {
@@ -127,5 +128,77 @@ button:disabled {
 #transform-results strong {
     display: inline-block;
     min-width: 150px;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: white;
+    border-bottom: 2px solid black;
+}
+
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 8px;
+    margin: 10px;
+}
+
+.hamburger-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 0;
+    transition: all 0.3s linear;
+}
+
+.hamburger-btn:hover {
+    background-color: black;
+}
+
+.hamburger-btn:hover span {
+    background-color: white;
+}
+
+.menu-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    background-color: white;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.menu-nav.active {
+    display: block;
+}
+
+.menu-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+}
+
+.menu-nav a:last-child {
+    border-bottom: none;
+}
+
+.menu-nav a:hover {
+    background-color: black;
+    color: white;
 }
 
