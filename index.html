@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Elements Tester</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Web Elements Tester</h1>
+        
+        <!-- Static Text -->
+        <section>
+            <h2>Static Text</h2>
+            <p>This is a static text element. It does not change dynamically.</p>
+        </section>
+        
+        <!-- Static Image -->
+        <section>
+            <h2>Static Image</h2>
+            <img src="image.svg" alt="Static image">
+        </section>
+        
+        <!-- Dynamic Image -->
+        <section>
+            <h2>Dynamic Image</h2>
+            <p>This image changes every 3 seconds. Current pattern: <span id="pattern-name">Loading...</span></p>
+            <div id="dynamic-image-container"></div>
+        </section>
+        
+        <!-- Dynamic Text (Date and Time) -->
+        <section>
+            <h2>Dynamic Text</h2>
+            <p id="datetime">Loading date and time...</p>
+        </section>
+        
+        <!-- Delayed Action -->
+        <section>
+            <h2>Delayed Action</h2>
+            <p>Click the button below and wait 5 seconds for the result.</p>
+            <button id="delay-btn">Start 5 Second Delay</button>
+            <p id="delay-status">Ready to start</p>
+            <p id="delay-result"></p>
+        </section>
+        
+        <!-- Radio Buttons -->
+        <section>
+            <h2>Radio Buttons</h2>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="option" value="option1">
+                    Option 1
+                </label>
+                <label>
+                    <input type="radio" name="option" value="option2">
+                    Option 2
+                </label>
+                <label>
+                    <input type="radio" name="option" value="option3">
+                    Option 3
+                </label>
+            </div>
+            <p id="radio-result">No option selected</p>
+        </section>
+        
+        <!-- Dropdown Selector -->
+        <section>
+            <h2>Dropdown Selector</h2>
+            <select id="dropdown">
+                <option value="">Select an option</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+            </select>
+            <p id="dropdown-result">No option selected</p>
+        </section>
+        
+        <!-- Text Transformation -->
+        <section>
+            <h2>Text Transformation</h2>
+            <input type="text" id="text-input" placeholder="Enter text to transform">
+            <button id="transform-btn">Transform</button>
+            <div id="transform-results">
+                <p><strong>Original:</strong> <span id="original-text">-</span></p>
+                <p><strong>Hex:</strong> <span id="hex-text">-</span></p>
+                <p><strong>Binary:</strong> <span id="binary-text">-</span></p>
+                <p><strong>With Random String:</strong> <span id="random-text">-</span></p>
+            </div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

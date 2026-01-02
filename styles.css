@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+#dynamic-image-container {
+    margin-top: 15px;
+}
+
+#dynamic-image-container svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.radio-group {
+    margin-bottom: 15px;
+}
+
+.radio-group label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+select {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+button:hover:not(:disabled) {
+    background-color: black;
+    color: white;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#transform-results {
+    margin-top: 20px;
+}
+
+#transform-results p {
+    margin-bottom: 10px;
+    word-break: break-all;
+}
+
+#transform-results strong {
+    display: inline-block;
+    min-width: 150px;
+}
+
