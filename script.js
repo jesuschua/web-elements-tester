@@ -60,6 +60,24 @@ radioButtons.forEach(radio => {
     });
 });
 
+// Checkbox change handler
+const checkboxes = document.querySelectorAll('input[name="checkbox"]');
+const checkboxResult = document.getElementById('checkbox-result');
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const selected = Array.from(checkboxes)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+        
+        if (selected.length > 0) {
+            checkboxResult.textContent = `Selected: ${selected.join(', ')}`;
+        } else {
+            checkboxResult.textContent = 'No items selected';
+        }
+    });
+});
+
 // Dropdown change handler
 const dropdown = document.getElementById('dropdown');
 const dropdownResult = document.getElementById('dropdown-result');
@@ -69,6 +87,129 @@ dropdown.addEventListener('change', function() {
         dropdownResult.textContent = `Selected: ${this.value}`;
     } else {
         dropdownResult.textContent = 'No option selected';
+    }
+});
+
+// Text input handler
+const textInputSimple = document.getElementById('text-input-simple');
+const textInputResult = document.getElementById('text-input-result');
+
+textInputSimple.addEventListener('input', function() {
+    if (this.value) {
+        textInputResult.textContent = `Input: ${this.value}`;
+    } else {
+        textInputResult.textContent = 'No input yet';
+    }
+});
+
+// Textarea handler
+const textareaInput = document.getElementById('textarea-input');
+const textareaResult = document.getElementById('textarea-result');
+
+textareaInput.addEventListener('input', function() {
+    if (this.value) {
+        const lines = this.value.split('\n').length;
+        textareaResult.textContent = `Lines: ${lines}, Characters: ${this.value.length}`;
+    } else {
+        textareaResult.textContent = 'No input yet';
+    }
+});
+
+// Number input handler
+const numberInput = document.getElementById('number-input');
+const numberResult = document.getElementById('number-result');
+
+numberInput.addEventListener('input', function() {
+    numberResult.textContent = `Value: ${this.value}`;
+});
+
+// Date picker handler
+const dateInput = document.getElementById('date-input');
+const dateResult = document.getElementById('date-result');
+
+dateInput.addEventListener('change', function() {
+    if (this.value) {
+        dateResult.textContent = `Selected: ${this.value}`;
+    } else {
+        dateResult.textContent = 'No date selected';
+    }
+});
+
+// File input handler
+const fileInput = document.getElementById('file-input');
+const fileResult = document.getElementById('file-result');
+
+fileInput.addEventListener('change', function() {
+    if (this.files && this.files.length > 0) {
+        const file = this.files[0];
+        fileResult.textContent = `Selected: ${file.name} (${(file.size / 1024).toFixed(2)} KB)`;
+    } else {
+        fileResult.textContent = 'No file selected';
+    }
+});
+
+// Range slider handler
+const rangeInput = document.getElementById('range-input');
+const rangeResult = document.getElementById('range-result');
+
+rangeInput.addEventListener('input', function() {
+    rangeResult.textContent = `Value: ${this.value}`;
+});
+
+// Tabs functionality
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        
+        // Remove active class from all buttons and contents
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding content
+        this.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+    });
+});
+
+// Accordion functionality
+const accordionButtons = document.querySelectorAll('.accordion-btn');
+
+accordionButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isActive = content.classList.contains('active');
+        
+        // Close all accordion items
+        document.querySelectorAll('.accordion-content').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Toggle the clicked item
+        if (!isActive) {
+            content.classList.add('active');
+        }
+    });
+});
+
+// Modal functionality
+const modal = document.getElementById('modal');
+const modalOpenBtn = document.getElementById('modal-open-btn');
+const modalClose = document.querySelector('.modal-close');
+
+modalOpenBtn.addEventListener('click', function() {
+    modal.classList.add('active');
+});
+
+modalClose.addEventListener('click', function() {
+    modal.classList.remove('active');
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.classList.remove('active');
     }
 });
 
@@ -154,3 +295,42 @@ delayBtn.addEventListener('click', function() {
     }, 1000);
 });
 
+// Progress bar handler
+const progressStartBtn = document.getElementById('progress-start-btn');
+const progressResetBtn = document.getElementById('progress-reset-btn');
+const progressBar = document.getElementById('progress-bar');
+const progressStatus = document.getElementById('progress-status');
+let progressInterval = null;
+
+function resetProgress() {
+    if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
+    }
+    progressBar.style.width = '0%';
+    progressStatus.textContent = 'Ready to start';
+    progressStartBtn.disabled = false;
+}
+
+progressStartBtn.addEventListener('click', function() {
+    progressStartBtn.disabled = true;
+    progressStatus.textContent = 'In progress...';
+    progressBar.style.width = '0%';
+    
+    let progress = 0;
+    progressInterval = setInterval(function() {
+        progress += 2;
+        progressBar.style.width = progress + '%';
+        
+        if (progress >= 100) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+            progressStatus.textContent = 'Complete!';
+            progressStartBtn.disabled = false;
+        }
+    }, 50);
+});
+
+progressResetBtn.addEventListener('click', function() {
+    resetProgress();
+});

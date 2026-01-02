@@ -202,3 +202,235 @@ button:disabled {
     color: white;
 }
 
+/* Checkbox Styles */
+.checkbox-group {
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Textarea Styles */
+textarea {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}
+
+/* Number Input Styles */
+input[type="number"] {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+/* Date Input Styles */
+input[type="date"] {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+/* File Input Styles */
+input[type="file"] {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+/* Range Slider Styles */
+input[type="range"] {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+/* Tabs Styles */
+.tabs {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border: 1px solid black;
+    border-bottom: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+.tab-btn.active {
+    background-color: black;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    padding: 15px;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Accordion Styles */
+.accordion {
+    border: 1px solid black;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.accordion-btn:last-of-type {
+    border-bottom: none;
+}
+
+.accordion-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    border-top: 1px solid black;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid black;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+.modal-close:hover {
+    color: black;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+/* Tooltip Styles */
+.tooltip-trigger {
+    position: relative;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+.tooltip-trigger::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background-color: black;
+    color: white;
+    white-space: nowrap;
+    border: 1px solid black;
+    display: none;
+    margin-bottom: 5px;
+    z-index: 1000;
+}
+
+.tooltip-trigger:hover::after {
+    display: block;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    border: 1px solid black;
+    background-color: white;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: black;
+    transition: width 0.1s linear;
+}
+

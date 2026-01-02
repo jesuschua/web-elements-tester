@@ -24,41 +24,30 @@
     <div class="container">
         <h1>Web Elements Tester</h1>
         
-        <!-- Static Text -->
+        <!-- Section 1: Static Elements -->
         <section>
             <h2>Static Text</h2>
             <p>This is a static text element. It does not change dynamically.</p>
         </section>
         
-        <!-- Static Image -->
         <section>
             <h2>Static Image</h2>
             <img src="image.svg" alt="Static image">
         </section>
         
-        <!-- Dynamic Image -->
+        <!-- Section 2: Dynamic Elements -->
+        <section>
+            <h2>Dynamic Text</h2>
+            <p id="datetime">Loading date and time...</p>
+        </section>
+        
         <section>
             <h2>Dynamic Image</h2>
             <p>This image changes every 3 seconds. Current pattern: <span id="pattern-name">Loading...</span></p>
             <div id="dynamic-image-container"></div>
         </section>
         
-        <!-- Dynamic Text (Date and Time) -->
-        <section>
-            <h2>Dynamic Text</h2>
-            <p id="datetime">Loading date and time...</p>
-        </section>
-        
-        <!-- Delayed Action -->
-        <section>
-            <h2>Delayed Action</h2>
-            <p>Click the button below and wait 5 seconds for the result.</p>
-            <button id="delay-btn">Start 5 Second Delay</button>
-            <p id="delay-status">Ready to start</p>
-            <p id="delay-result"></p>
-        </section>
-        
-        <!-- Radio Buttons -->
+        <!-- Section 3: Form Controls -->
         <section>
             <h2>Radio Buttons</h2>
             <div class="radio-group">
@@ -78,7 +67,25 @@
             <p id="radio-result">No option selected</p>
         </section>
         
-        <!-- Dropdown Selector -->
+        <section>
+            <h2>Checkboxes</h2>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="checkbox" value="item1">
+                    Item 1
+                </label>
+                <label>
+                    <input type="checkbox" name="checkbox" value="item2">
+                    Item 2
+                </label>
+                <label>
+                    <input type="checkbox" name="checkbox" value="item3">
+                    Item 3
+                </label>
+            </div>
+            <p id="checkbox-result">No items selected</p>
+        </section>
+        
         <section>
             <h2>Dropdown Selector</h2>
             <select id="dropdown">
@@ -91,7 +98,100 @@
             <p id="dropdown-result">No option selected</p>
         </section>
         
-        <!-- Text Transformation -->
+        <section>
+            <h2>Text Input</h2>
+            <input type="text" id="text-input-simple" placeholder="Enter text here">
+            <p id="text-input-result">No input yet</p>
+        </section>
+        
+        <section>
+            <h2>Textarea</h2>
+            <textarea id="textarea-input" placeholder="Enter multiple lines of text here" rows="4"></textarea>
+            <p id="textarea-result">No input yet</p>
+        </section>
+        
+        <section>
+            <h2>Number Input</h2>
+            <input type="number" id="number-input" min="0" max="100" value="0">
+            <p id="number-result">Value: 0</p>
+        </section>
+        
+        <section>
+            <h2>Date Picker</h2>
+            <input type="date" id="date-input">
+            <p id="date-result">No date selected</p>
+        </section>
+        
+        <section>
+            <h2>File Input</h2>
+            <input type="file" id="file-input">
+            <p id="file-result">No file selected</p>
+        </section>
+        
+        <section>
+            <h2>Range Slider</h2>
+            <input type="range" id="range-input" min="0" max="100" value="50">
+            <p id="range-result">Value: 50</p>
+        </section>
+        
+        <!-- Section 4: UI Components -->
+        <section>
+            <h2>Tabs</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+                <button class="tab-btn" data-tab="tab2">Tab 2</button>
+                <button class="tab-btn" data-tab="tab3">Tab 3</button>
+            </div>
+            <div class="tab-content active" id="tab1">Content for Tab 1</div>
+            <div class="tab-content" id="tab2">Content for Tab 2</div>
+            <div class="tab-content" id="tab3">Content for Tab 3</div>
+        </section>
+        
+        <section>
+            <h2>Accordion</h2>
+            <div class="accordion">
+                <button class="accordion-btn">Section 1</button>
+                <div class="accordion-content">
+                    <p>Content for Section 1. This can be expanded or collapsed.</p>
+                </div>
+                <button class="accordion-btn">Section 2</button>
+                <div class="accordion-content">
+                    <p>Content for Section 2. This can be expanded or collapsed.</p>
+                </div>
+                <button class="accordion-btn">Section 3</button>
+                <div class="accordion-content">
+                    <p>Content for Section 3. This can be expanded or collapsed.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Modal</h2>
+            <button id="modal-open-btn">Open Modal</button>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <h3>Modal Dialog</h3>
+                    <p>This is a modal dialog. Click the X or outside to close.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Tooltip</h2>
+            <p>Hover over the text below to see a tooltip:</p>
+            <span class="tooltip-trigger" data-tooltip="This is a tooltip message">Hover me for tooltip</span>
+        </section>
+        
+        <!-- Section 5: Actions -->
+        <section>
+            <h2>Delayed Action</h2>
+            <p>Click the button below and wait 5 seconds for the result.</p>
+            <button id="delay-btn">Start 5 Second Delay</button>
+            <p id="delay-status">Ready to start</p>
+            <p id="delay-result"></p>
+        </section>
+        
         <section>
             <h2>Text Transformation</h2>
             <input type="text" id="text-input" placeholder="Enter text to transform">
@@ -103,10 +203,19 @@
                 <p><strong>With Random String:</strong> <span id="random-text">-</span></p>
             </div>
         </section>
+        
+        <section>
+            <h2>Progress Bar</h2>
+            <button id="progress-start-btn">Start Progress</button>
+            <button id="progress-reset-btn">Reset Progress</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p id="progress-status">Ready to start</p>
+        </section>
     </div>
     
     <script src="menu.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
