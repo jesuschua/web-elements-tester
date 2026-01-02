@@ -19,38 +19,129 @@ const sampleData = [
 
 let currentPage = 1;
 const itemsPerPage = 5;
+let filteredData = [...sampleData];
+
 const tableBody = document.getElementById('table-body');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const pageInfo = document.getElementById('page-info');
 const paginationInfo = document.getElementById('pagination-info');
+const filterResultsInfo = document.getElementById('filter-results-info');
 
+// Filter elements
+const searchInput = document.getElementById('search-input');
+const filterId = document.getElementById('filter-id');
+const filterName = document.getElementById('filter-name');
+const filterEmail = document.getElementById('filter-email');
+const filterStatus = document.getElementById('filter-status');
+const clearFiltersBtn = document.getElementById('clear-filters-btn');
+
+// Filter data based on all filter criteria
+function filterData() {
+    filteredData = sampleData.filter(item => {
+        // Search across all columns
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        if (searchTerm) {
+            const searchableText = `${item.id} ${item.name} ${item.email} ${item.status}`.toLowerCase();
+            if (!searchableText.includes(searchTerm)) {
+                return false;
+            }
+        }
+        
+        // Filter by ID
+        if (filterId.value) {
+            if (item.id !== parseInt(filterId.value)) {
+                return false;
+            }
+        }
+        
+        // Filter by Name
+        if (filterName.value.trim()) {
+            if (!item.name.toLowerCase().includes(filterName.value.toLowerCase().trim())) {
+                return false;
+            }
+        }
+        
+        // Filter by Email
+        if (filterEmail.value.trim()) {
+            if (!item.email.toLowerCase().includes(filterEmail.value.toLowerCase().trim())) {
+                return false;
+            }
+        }
+        
+        // Filter by Status
+        if (filterStatus.value) {
+            if (item.status !== filterStatus.value) {
+                return false;
+            }
+        }
+        
+        return true;
+    });
+    
+    // Reset to page 1 when filtering
+    currentPage = 1;
+    renderTable();
+}
+
+// Render table with filtered data
 function renderTable() {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const pageData = sampleData.slice(startIndex, endIndex);
+    const pageData = filteredData.slice(startIndex, endIndex);
     
     tableBody.innerHTML = '';
     
-    pageData.forEach(item => {
+    if (pageData.length === 0) {
         const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${item.id}</td>
-            <td>${item.name}</td>
-            <td>${item.email}</td>
-            <td>${item.status}</td>
-        `;
+        row.innerHTML = '<td colspan="4">No data found matching the filters</td>';
         tableBody.appendChild(row);
-    });
+    } else {
+        pageData.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.email}</td>
+                <td>${item.status}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
     
-    const totalPages = Math.ceil(sampleData.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage) || 1;
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    paginationInfo.textContent = `Showing ${startIndex + 1}-${Math.min(endIndex, sampleData.length)} of ${sampleData.length} items`;
+    paginationInfo.textContent = `Showing ${startIndex + 1}-${Math.min(endIndex, filteredData.length)} of ${filteredData.length} items`;
     
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
+    // Update filter results info
+    if (filteredData.length !== sampleData.length) {
+        filterResultsInfo.textContent = `Filtered: ${filteredData.length} of ${sampleData.length} items`;
+    } else {
+        filterResultsInfo.textContent = `Total: ${sampleData.length} items`;
+    }
+    
+    prevBtn.disabled = currentPage === 1 || filteredData.length === 0;
+    nextBtn.disabled = currentPage >= totalPages || filteredData.length === 0;
 }
 
+// Event listeners for filters
+searchInput.addEventListener('input', filterData);
+filterId.addEventListener('input', filterData);
+filterName.addEventListener('input', filterData);
+filterEmail.addEventListener('input', filterData);
+filterStatus.addEventListener('change', filterData);
+
+// Clear all filters
+clearFiltersBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    filterId.value = '';
+    filterName.value = '';
+    filterEmail.value = '';
+    filterStatus.value = '';
+    filterData();
+});
+
+// Pagination handlers
 prevBtn.addEventListener('click', function() {
     if (currentPage > 1) {
         currentPage--;
@@ -59,7 +150,7 @@ prevBtn.addEventListener('click', function() {
 });
 
 nextBtn.addEventListener('click', function() {
-    const totalPages = Math.ceil(sampleData.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage) || 1;
     if (currentPage < totalPages) {
         currentPage++;
         renderTable();
@@ -68,4 +159,3 @@ nextBtn.addEventListener('click', function() {
 
 // Initialize table
 renderTable();
-
