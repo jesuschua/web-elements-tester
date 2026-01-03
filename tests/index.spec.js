@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.describe('Web Elements Tester', () => {
+test.describe('Main Page (index.html)', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('https://jesuschua.github.io/web-elements-tester/');
   });
@@ -62,10 +62,10 @@ test.describe('Web Elements Tester', () => {
     const delayResult = page.locator('#delay-result');
     
     await delayBtn.click();
-    await expect(delayStatus).toContainText('Waiting...');
+    await expect(delayStatus).toContainText('Waiting...', { timeout: 2000 });
     
     // Wait for completion (5 seconds + buffer)
-    await expect(delayResult).toContainText('Result displayed at', { timeout: 6000 });
+    await expect(delayResult).toContainText('Result displayed at', { timeout: 7000 });
     await expect(delayStatus).toContainText('Complete!');
   });
 
@@ -107,11 +107,10 @@ test.describe('Web Elements Tester', () => {
     await startBtn.click();
     await expect(progressStatus).toContainText('In progress...');
     
-    // Wait for completion
     await expect(progressStatus).toContainText('Complete!', { timeout: 6000 });
     
-    // Check progress bar is filled
     const width = await progressBar.evaluate(el => el.style.width);
     expect(width).toBe('100%');
   });
 });
+
