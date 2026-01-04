@@ -170,6 +170,16 @@ button:disabled {
     background-color: white;
 }
 
+.username-display {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9em;
+    color: black;
+    display: none;
+}
+
 .menu-nav {
     display: none;
     position: absolute;

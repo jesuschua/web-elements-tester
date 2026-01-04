@@ -25,6 +25,7 @@ function checkAuth() {
 function login(username, password) {
     if (username === VALID_USERNAME && password === VALID_PASSWORD) {
         sessionStorage.setItem('authenticated', 'true');
+        sessionStorage.setItem('username', username);
         return true;
     }
     return false;
@@ -33,7 +34,25 @@ function login(username, password) {
 // Logout function
 function logout() {
     sessionStorage.removeItem('authenticated');
+    sessionStorage.removeItem('username');
     window.location.href = 'login.html';
+}
+
+// Get current username
+function getCurrentUsername() {
+    return sessionStorage.getItem('username') || '';
+}
+
+// Display username in header
+function displayUsername() {
+    const usernameDisplay = document.getElementById('username-display');
+    if (usernameDisplay && isAuthenticated()) {
+        const username = getCurrentUsername();
+        usernameDisplay.textContent = `Logged in as: ${username}`;
+        usernameDisplay.style.display = 'block';
+    } else if (usernameDisplay) {
+        usernameDisplay.style.display = 'none';
+    }
 }
 
 // Get redirect URL from query parameters
