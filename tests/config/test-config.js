@@ -3,13 +3,14 @@ module.exports = {
   timeout: 30000,
   retries: 2,
   pages: {
-    main: '/',
-    navigation: '/navigation.html',
-    formValidation: '/form-validation.html',
-    dataDisplay: '/data-display.html',
-    keyboardEvents: '/keyboard-events.html',
-    download: '/download.html',
-    printing: '/printing.html'
+    main: '/app/',
+    navigation: '/app/navigation.html',
+    formValidation: '/app/form-validation.html',
+    dataDisplay: '/app/data-display.html',
+    keyboardEvents: '/app/keyboard-events.html',
+    download: '/app/download.html',
+    printing: '/app/printing.html',
+    login: '/app/login.html'
   }
 };
 

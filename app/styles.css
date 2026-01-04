@@ -607,3 +607,66 @@ table tr:nth-child(even) {
     }
 }
 
+/* Login Form Styles */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    border: 2px solid black;
+}
+
+.login-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    outline: 2px solid black;
+    outline-offset: 2px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: white;
+    color: black;
+}
+
+.login-error {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    text-align: center;
+}
+

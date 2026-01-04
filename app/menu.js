@@ -6,14 +6,18 @@ const menuItems = [
     { href: 'data-display.html', text: 'Data Display' },
     { href: 'printing.html', text: 'Printing' },
     { href: 'keyboard-events.html', text: 'Keyboard Events' },
-    { href: 'download.html', text: 'Download' }
+    { href: 'download.html', text: 'Download' },
+    { href: '#', text: 'Logout', onclick: 'logout(); return false;' }
 ];
 
 // Generate menu HTML
 function generateMenuHTML() {
-    return menuItems.map(item => 
-        `<a href="${item.href}">${item.text}</a>`
-    ).join('');
+    return menuItems.map(item => {
+        if (item.onclick) {
+            return `<a href="${item.href}" onclick="${item.onclick}">${item.text}</a>`;
+        }
+        return `<a href="${item.href}">${item.text}</a>`;
+    }).join('');
 }
 
 // Initialize menu on page load
