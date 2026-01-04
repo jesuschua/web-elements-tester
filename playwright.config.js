@@ -12,6 +12,7 @@ module.exports = defineConfig({
     baseURL: 'https://jesuschua.github.io/web-elements-tester/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    video: 'on', // Record video for all tests
   },
 
   projects: [
