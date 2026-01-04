@@ -24,6 +24,7 @@ class KeyboardEventsPage {
   }
 
   async typeInInput(value) {
+    await this.keyboardInput.scrollIntoViewIfNeeded();
     await this.keyboardInput.click();
     await this.keyboardInput.type(value);
   }

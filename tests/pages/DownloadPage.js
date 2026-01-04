@@ -20,6 +20,7 @@ class DownloadPage {
   async downloadFile() {
     // Wait for the download button to be ready
     await this.downloadBtn.waitFor({ state: 'visible' });
+    await this.downloadBtn.scrollIntoViewIfNeeded();
     
     const [download] = await Promise.all([
       this.page.waitForEvent('download'),
@@ -32,6 +33,7 @@ class DownloadPage {
   }
 
   async clearHistory() {
+    await this.clearHistoryBtn.scrollIntoViewIfNeeded();
     await this.clearHistoryBtn.click();
   }
 }

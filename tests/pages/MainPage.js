@@ -46,50 +46,64 @@ class MainPage {
 
   // Radio button methods
   async selectRadioOption(option) {
-    await this.page.locator(`input[value="${option}"]`).check();
+    const radio = this.page.locator(`input[value="${option}"]`);
+    await radio.scrollIntoViewIfNeeded();
+    await radio.check();
   }
 
   // Checkbox methods
   async selectCheckboxes(...items) {
     for (const item of items) {
-      await this.page.locator(`input[name="checkbox"][value="${item}"]`).check();
+      const checkbox = this.page.locator(`input[name="checkbox"][value="${item}"]`);
+      await checkbox.scrollIntoViewIfNeeded();
+      await checkbox.check();
     }
   }
 
   // Dropdown methods
   async selectDropdownOption(option) {
+    await this.dropdown.scrollIntoViewIfNeeded();
     await this.dropdown.selectOption(option);
   }
 
   // Text input methods
   async fillTextInput(value) {
+    await this.textInputSimple.scrollIntoViewIfNeeded();
     await this.textInputSimple.fill(value);
   }
 
   // Text transformation methods
   async transformText(text) {
+    await this.textInput.scrollIntoViewIfNeeded();
     await this.textInput.fill(text);
+    await this.transformBtn.scrollIntoViewIfNeeded();
     await this.transformBtn.click();
   }
 
   // Delayed action methods
   async triggerDelayedAction() {
+    await this.delayBtn.scrollIntoViewIfNeeded();
     await this.delayBtn.click();
   }
 
   // Tab methods
   async switchToTab(tabName) {
-    await this.page.locator(`.tab-btn[data-tab="${tabName}"]`).click();
+    const tab = this.page.locator(`.tab-btn[data-tab="${tabName}"]`);
+    await tab.scrollIntoViewIfNeeded();
+    await tab.click();
   }
 
   // Accordion methods
   async expandAccordionSection(index = 0) {
     const buttons = this.page.locator('.accordion-btn');
-    await buttons.nth(index).click();
+    const button = buttons.nth(index);
+    await button.scrollIntoViewIfNeeded();
+    await button.click();
   }
 
   // Modal methods
   async openModal() {
+    await this.modalOpenBtn.scrollIntoViewIfNeeded();
     await this.modalOpenBtn.click();
   }
 
@@ -99,6 +113,7 @@ class MainPage {
 
   // Progress bar methods
   async startProgress() {
+    await this.progressStartBtn.scrollIntoViewIfNeeded();
     await this.progressStartBtn.click();
   }
 }

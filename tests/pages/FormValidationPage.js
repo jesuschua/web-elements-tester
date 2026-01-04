@@ -37,7 +37,9 @@ class FormValidationPage {
   }
 
   async fillRequiredForm(name, email) {
+    await this.requiredName.scrollIntoViewIfNeeded();
     await this.requiredName.fill(name);
+    await this.requiredEmail.scrollIntoViewIfNeeded();
     await this.requiredEmail.fill(email);
   }
 
@@ -46,12 +48,22 @@ class FormValidationPage {
   }
 
   async fillCustomForm(password, age, url) {
-    if (password) await this.customPassword.fill(password);
-    if (age) await this.customAge.fill(age.toString());
-    if (url) await this.customUrl.fill(url);
+    if (password) {
+      await this.customPassword.scrollIntoViewIfNeeded();
+      await this.customPassword.fill(password);
+    }
+    if (age) {
+      await this.customAge.scrollIntoViewIfNeeded();
+      await this.customAge.fill(age.toString());
+    }
+    if (url) {
+      await this.customUrl.scrollIntoViewIfNeeded();
+      await this.customUrl.fill(url);
+    }
   }
 
   async typeRealtimeInput(value) {
+    await this.realtimeInput.scrollIntoViewIfNeeded();
     await this.realtimeInput.fill(value);
   }
 }

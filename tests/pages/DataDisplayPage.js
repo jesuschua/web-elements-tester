@@ -26,34 +26,42 @@ class DataDisplayPage {
   }
 
   async search(query) {
+    await this.searchInput.scrollIntoViewIfNeeded();
     await this.searchInput.fill(query);
   }
 
   async filterByStatus(status) {
+    await this.filterStatus.scrollIntoViewIfNeeded();
     await this.filterStatus.selectOption(status);
   }
 
   async filterById(id) {
+    await this.filterId.scrollIntoViewIfNeeded();
     await this.filterId.fill(id.toString());
   }
 
   async filterByName(name) {
+    await this.filterName.scrollIntoViewIfNeeded();
     await this.filterName.fill(name);
   }
 
   async filterByEmail(email) {
+    await this.filterEmail.scrollIntoViewIfNeeded();
     await this.filterEmail.fill(email);
   }
 
   async clearFilters() {
+    await this.clearFiltersBtn.scrollIntoViewIfNeeded();
     await this.clearFiltersBtn.click();
   }
 
   async goToNextPage() {
+    await this.nextBtn.scrollIntoViewIfNeeded();
     await this.nextBtn.click();
   }
 
   async goToPreviousPage() {
+    await this.prevBtn.scrollIntoViewIfNeeded();
     await this.prevBtn.click();
   }
 
