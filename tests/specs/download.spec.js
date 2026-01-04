@@ -11,7 +11,19 @@ test.describe('Download Page', () => {
     
     expect(download.suggestedFilename()).toMatch(/^test-file-.*\.txt$/);
     
-    const filePath = await download.path();
+    // Only call path() when we actually need to read the file
+    // Use saveAs() as fallback if path() is not available
+    let filePath;
+    try {
+      filePath = await download.path();
+    } catch (error) {
+      // If path() is not available (e.g., remote connection), use saveAs()
+      const path = require('path');
+      const os = require('os');
+      filePath = path.join(os.tmpdir(), download.suggestedFilename());
+      await download.saveAs(filePath);
+    }
+    
     expect(filePath).toBeTruthy();
     
     const fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -22,16 +34,20 @@ test.describe('Download Page', () => {
 
   test('should update download status after download', async ({ downloadPage }) => {
     const download = await downloadPage.downloadFile();
-    await download.path();
     
-    await expect(downloadPage.downloadStatus).toContainText('Downloaded:');
+    // Wait for download to complete (just wait for the event, don't need path)
+    // The UI updates synchronously after the click, but we wait a bit to ensure it's rendered
+    await downloadPage.page.waitForTimeout(100);
+    await expect(downloadPage.downloadStatus).toContainText('Downloaded:', { timeout: 2000 });
   });
 
   test('should show download history', async ({ downloadPage }) => {
     const download = await downloadPage.downloadFile();
-    await download.path();
     
-    await expect(downloadPage.downloadHistory).not.toContainText('No downloads yet');
+    // Wait for history to update (it updates synchronously after click)
+    // The UI updates synchronously after the click, but we wait a bit to ensure it's rendered
+    await downloadPage.page.waitForTimeout(100);
+    await expect(downloadPage.downloadHistory).not.toContainText('No downloads yet', { timeout: 2000 });
   });
 });
 

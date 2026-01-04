@@ -18,10 +18,16 @@ class DownloadPage {
   }
 
   async downloadFile() {
+    // Wait for the download button to be ready
+    await this.downloadBtn.waitFor({ state: 'visible' });
+    
     const [download] = await Promise.all([
       this.page.waitForEvent('download'),
       this.downloadBtn.click()
     ]);
+    
+    // Return the download object - don't call path() here as it may not be available
+    // in all Playwright configurations (e.g., remote connections)
     return download;
   }
 
